@@ -1,0 +1,154 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasta Fresca | Verse koude pasta op locatie</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#" class="logo">Pasta Fresca</a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#events">Locaties</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reservation">Bestellen</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+    <div class="mobile-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-heading">Verse <span>koude pasta</span> op locatie</h1>
+      <p class="hero-subheading">Heerlijke, ambachtelijke koude pasta gerechten gemaakt met de beste ingrediënten,
+        perfect voor elke tijd van de dag. Vers, snel en smakelijk!</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary"
+          onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Menu bekijken</button>
+        <button class="btn btn-secondary"
+          onclick="document.getElementById('reservation').scrollIntoView({behavior: 'smooth'})">Bestellen</button>
+      </div>
+    </div>
+    <div class="model-container" id="model-container"></div>
+  </section>
+
+  <!-- Locations Section -->
+  <section id="events" class="events">
+    <h2 class="section-title">Waar kun je ons vinden</h2>
+    <div class="events-container">
+      <div class="events-map" id="events-map"></div>
+      <div class="events-list" id="events-list">
+        <!-- Locaties worden dynamisch geladen -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu">
+    <h2 class="section-title">Ons verse koude pasta menu</h2>
+    <div class="menu-container">
+      <div class="menu-items" id="menu-items">
+        <!-- Menu items will be loaded dynamically -->
+      </div>
+      <button class="btn btn-secondary show-more-btn hidden" id="show-more-menu">
+        Toon meer
+      </button>
+    </div>
+  </section>
+
+  <!-- Order Section -->
+  <section id="reservation" class="reservation">
+    <h2 class="section-title">Reserveer ons hier</h2>
+    <form class="reservation-form" id="reservation-form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Volledige naam" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" class="form-control" placeholder="Telefoonnummer" required>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="E-mailadres" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Locatie" required>
+      </div>
+      <div class="form-group full-width">
+        <textarea class="form-control" placeholder="Speciale instructies of dieetvereisten" rows="5"></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary">Reserveren</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Over Pasta Fresca</h3>
+        <p>Wij zijn een familiebedrijf dat verse koude pasta gerechten serveert vanuit een foodtruck.</p>
+        <p>Onze missie is om een gemakkelijke, gezonde en lekkere optie te bieden voor drukke stadsmensen.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Snelkoppelingen</h3>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#events">Locaties</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#reservation">Bestellen</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <div class="contact-info">
+          <span class="contact-icon"> </span>
+          <span>Food Park &amp; Verschillende Locaties</span>
+        </div>
+        <div class="contact-info">
+          <span class="contact-icon"> </span>
+          <span>+1 234 567 890</span>
+        </div>
+        <div class="contact-info">
+          <span class="contact-icon"> </span>
+          <span>hallo@pastafresca.com</span>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Volg ons</h3>
+        <p>Blijf op de hoogte van ons laatste nieuws en locaties op sociale media.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">FB</a>
+          <a href="#" class="social-link">IG</a>
+          <a href="#" class="social-link">TW</a>
+          <a href="#" class="social-link">TT</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pasta Fresca Food Truck. Alle rechten voorbehouden. | Website gemaakt door <a
+          href="https://facit.shop" class="made-by" target="_blank">FacIT.shop</a></p>
+    </div>
+  </footer>
+
+  <!-- Load custom scripts -->
+  <script src="assets/js/map.js"></script>
+  <script src="assets/js/menu.js"></script>
+</body>
+
+</html>
