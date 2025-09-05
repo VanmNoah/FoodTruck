@@ -1,26 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {    const menuContainer = document.getElementById('menu-items');    const showMoreBtn = document.getElementById('show-more-menu');    const itemsPerPage = 6;    let currentPage = 1;    // Fetch menu items from database    function loadMenuItems(page) {        fetch(`/api/get_menu.php?page=${page}&limit=${itemsPerPage}`)            .then(response => response.json())            .then(data => {                if (data.items.length > 0) {                    data.items.forEach(item => {                        const menuCard = createMenuCard(item);                        menuContainer.appendChild(menuCard);                    });                                        // Show/hide "Show More" button                    if (data.hasMore) {                        showMoreBtn.classList.remove('hidden');                    } else {                        showMoreBtn.classList.add('hidden');                    }                }            });    }
 
-    // Create menu card element
-    function createMenuCard(item) {
-        const card = document.createElement('div');
-        card.className = 'menu-card';
-        card.innerHTML = `
-            <img src="${item.image || ''}" alt="${item.title}" class="menu-card-img">
-            <div class="menu-card-content">
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-                <span class="price">€${item.price.toFixed(2)}</span>
-            </div>
-        `;
-        return card;
-    }
-
-    // Load initial items
-    loadMenuItems(currentPage);
-
-    // Handle "Show More" button click
-    showMoreBtn.addEventListener('click', () => {
-        currentPage++;
-        loadMenuItems(currentPage);
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  const items = [
+    { name: "Pasta Pesto", desc: "Verse basilicum pesto, pijnboompitten, Parmezaan.", price: "8.50" },
+    { name: "Pasta Tonno", desc: "Tonijn, rode ui, kappertjes, citroen.", price: "9.00" },
+    { name: "Pasta Caprese", desc: "Tomaat, mozzarella, basilicum, balsamico.", price: "8.00" },
+    { name: "Pasta Pollo", desc: "Gegrilde kip, rucola, citroenmayo.", price: "9.50" }
+  ];
+  const container = document.getElementById('menu-items');
+  if (!container) return;
+  if (container.children.length > 0) return; // already static HTML present
+  items.forEach(d => {
+    const card = document.createElement('div');
+    card.className = 'menu-card';
+    card.innerHTML = `<h3>${d.name}</h3><p>${d.desc}</p><div class="price">&euro;${d.price}</div>`;
+    container.appendChild(card);
+  });
 });

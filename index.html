@@ -1,13 +1,10 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="nl">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pasta Fresca | Verse koude pasta op locatie</title>
+  <title>Foodtruck</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
@@ -17,7 +14,7 @@ session_start();
 <body>
   <!-- Navigation -->
   <nav id="navbar">
-    <a href="#" class="logo">Pasta Fresca</a>
+    <a href="#" class="logo">Foodtruck</a>
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
       <li><a href="#events">Locaties</a></li>
@@ -54,7 +51,23 @@ session_start();
     <div class="events-container">
       <div class="events-map" id="events-map"></div>
       <div class="events-list" id="events-list">
-        <!-- Locaties worden dynamisch geladen -->
+
+        <div class="event-item">
+          <h4>Zaterdagmarkt Antwerpen</h4>
+          <div class="event-date">2025-09-06</div>
+          <div class="event-location">Theaterplein</div>
+        </div>
+        <div class="event-item">
+          <h4>Foodtruck Festival Gent</h4>
+          <div class="event-date">2025-09-12</div>
+          <div class="event-location">Citadelpark</div>
+        </div>
+        <div class="event-item">
+          <h4>Weekmarkt Leuven</h4>
+          <div class="event-date">2025-09-14</div>
+          <div class="event-location">Monseigneur Ladeuzeplein</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -64,7 +77,28 @@ session_start();
     <h2 class="section-title">Ons verse koude pasta menu</h2>
     <div class="menu-container">
       <div class="menu-items" id="menu-items">
-        <!-- Menu items will be loaded dynamically -->
+
+      <div class="menu-card">
+        <h3>Pasta Pesto</h3>
+        <p>Verse basilicum pesto, pijnboompitten, Parmezaan.</p>
+        <div class="price">&euro;8.50</div>
+      </div>
+      <div class="menu-card">
+        <h3>Pasta Tonno</h3>
+        <p>Tonijn, rode ui, kappertjes, citroen.</p>
+        <div class="price">&euro;9.00</div>
+      </div>
+      <div class="menu-card">
+        <h3>Pasta Caprese</h3>
+        <p>Tomaat, mozzarella, basilicum, balsamico.</p>
+        <div class="price">&euro;8.00</div>
+      </div>
+      <div class="menu-card">
+        <h3>Pasta Pollo</h3>
+        <p>Gegrilde kip, rucola, citroenmayo.</p>
+        <div class="price">&euro;9.50</div>
+      </div>
+
       </div>
       <button class="btn btn-secondary show-more-btn hidden" id="show-more-menu">
         Toon meer
