@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
   const container = document.getElementById('menu-items');
   if (!container) return;
-  if (container.children.length > 0) return; // already static HTML present
+  if (container.children.length > 0) return;
   items.forEach(d => {
     const card = document.createElement('div');
     card.className = 'menu-card';
