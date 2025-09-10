@@ -102,7 +102,7 @@ section{padding: clamp(64px, 8vw, 120px) 5%}
 .hero-image{
   display:block;
   width: clamp(320px, 38vw, 560px); 
-  max-width: 100%;
+  max-width: 40%;
   height: auto;      
   flex: 1 1 420px;
   align-self: center;
